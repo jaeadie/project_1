@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-infile='GDS4467.txt'
+infile='GDS4506.txt'
 
 fh = open(infile)
 
@@ -25,10 +25,12 @@ genefile=open('genes.txt', 'w')
 expressionfile=open('expression.txt','w')
 probefile=open('probes.txt', 'w')
 
-genefields=['Gene ID', 'Gene symbol', 'Gene title']
-samples=header.split('\t')[2:int(colnames['Gene title'])]
-probefields=['ID_REF','Gene ID']
 
+genefields=['Gene_ID', 'Gene_symbol', 'Gene_title']
+samples=header.split('\t')[2:int(colnames['Gene_title'])]
+probefields=['id_ref','Gene_ID']
+
+#defining the structure of the tables.
 def buildrow(row, fields):
     newrow=[]
     for f in fields:
