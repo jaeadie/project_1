@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
-infile='GDS4506.txt'
-
+#open the data set file.
+infile='GDS4506_full.soft'
 fh = open(infile)
 
 line= fh.readline()
@@ -9,6 +9,8 @@ while line[:20] != '!dataset_table_begin':
     line=fh.readline()
 
 header= fh.readline().strip()
+
+#defining the title for each column in the tables.
 
 colnames={}
 
@@ -25,18 +27,19 @@ genefile=open('genes.txt', 'w')
 expressionfile=open('expression.txt','w')
 probefile=open('probes.txt', 'w')
 
+#defining the columns for each table.
+genefields=['Gene ID', 'Gene symbol', 'Gene title']
+samples=header.split('\t')[2:int(colnames['Gene title'])]
+probefields=['ID_REF','Gene ID']
 
-genefields=['Gene_ID', 'Gene_symbol', 'Gene_title']
-samples=header.split('\t')[2:int(colnames['Gene_title'])]
-probefields=['id_ref','Gene_ID']
-
-#defining the structure of the tables.
+#defining the function to build each row.
 def buildrow(row, fields):
     newrow=[]
     for f in fields:
         newrow.append(row[int(colnames[f])])
     return "\t".join(newrow)+"\n"
 
+#adding the data from our data set into the output files.
 def build_expression(row, samples):
     exprrows=[]
     for s in samples:
