@@ -42,4 +42,3 @@ class Gene():
 	for result in cursor.fetchall():
   	    self.probelist.append(result[0])
 
-	print result
