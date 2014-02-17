@@ -32,13 +32,15 @@ class Gene():
 	#query database
 	#get result and populate the class fields.
 	result=cursor.fetchone()
-	self.gene_title	=result[0]
+	self.gene_title =result[0]
         self.gene_symbol=result[1]
         #now fetch the probes..
-        probesql='select probe_name from probes where gene=%s'
-	#fill in the blanks yourself
 
-
+	probesql='select probe_name from probes where gene_id=%s'
+	cursor.execute(probesql,(geneid,))
+	 
 	for result in cursor.fetchall():
+            #print '%s'%result
   	    self.probelist.append(result[0])
+	
 
