@@ -1,6 +1,6 @@
 # -*- coding: iso-8859-1 -*-
-#import database query script
 
+#import database query script
 
 import models
 
@@ -16,6 +16,7 @@ cgitb.enable()
 
 
 form = cgi.FieldStorage()
+#write out the data that is to be output back to the webpage.
 
 print "content-type: text/html" #html stuff is following
 print
