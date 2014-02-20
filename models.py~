@@ -1,44 +1,50 @@
 # -*- coding: iso-8859-1 -*-
 '''Classes to represent our gene expression objects'''
 
+#import msql module
 import MySQLdb
 
+#set up a class that will store log in information.
 class DBHandler():
     connection=None
     dbname='jaeadie'
     dbuser='jaeadie'
     dbpassword='sqlpassword'
     
+ #defining a function that will log in when the script is run.    
     def __init__(self):
         if DBHandler.connection == None:
             DBHandler.connection = MySQLdb.connect(db=DBHandler.dbname, \
-user=DBHandler.dbuser, passwd=DBHandler.dbpassword)
+	user=DBHandler.dbuser, passwd=DBHandler.dbpassword)
 
     def cursor(self):
 	return DBHandler.connection.cursor()
 
+#the class that will store the output from the sql searches.
 class Gene():
     gene_symbol=''
     gene_title=''
     gene_id=''
     probelist=[]
 
+#search function that probes the sql database using the input gene id.
     def __init__(self,geneid):
 	self.gene_id=geneid
+# log into sql using the earlier defined function.      
         db=DBHandler()
 	cursor=db.cursor()
+#the search that will be input into sql using this script.
 	sql='select gene_title, gene_symbol from gene where gene_id=%s'
 	cursor.execute(sql,(geneid,))
-	#query database
-	#get result and populate the class fields.
+query database
+#get result and populate the class fields.
 	result=cursor.fetchone()
 	self.gene_title =result[0]
         self.gene_symbol=result[1]
-        #now fetch the probes..
-
+#now searches for the matching probes.
 	probesql='select probe_name from probes where gene_id=%s'
 	cursor.execute(probesql,(geneid,))
-	 
+#populate the probe list.
 	for result in cursor.fetchall():
             print '%s'%result
   	    self.probelist.append(result[0])
