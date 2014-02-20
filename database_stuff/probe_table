@@ -1,0 +1,2 @@
+mysql> create table probes( probe_name varchar(20) not null, gene varchar(20) not null, foreign key (gene) references gene (gene_id) );
+
