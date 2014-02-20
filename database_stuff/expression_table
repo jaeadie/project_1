@@ -1,0 +1,2 @@
+mysql> create table expression( probe varchar(30) not null, foreign key (probe) refereneces probes (probe_name), expression_value float(10,1), sample varchar(30) not null,  foreign key (sample) references sample (sample_name) );
+
