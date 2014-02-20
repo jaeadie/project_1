@@ -1,0 +1,2 @@
+mysql> create table gene(gene_id varchar(20) not null, gene_title varchar(20) not null, gene_symbol varchar(20) not null );
+
