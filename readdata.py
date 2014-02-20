@@ -49,6 +49,7 @@ def build_expression(row, samples):
 	exprrows.append("\t".join(newrow))
     return "\n".join(exprrows)+"\n"
 rows=0    
+#try and except to help reduce and catch bugs or errors
 for line in fh.readlines():
     try:
         if line[0]=='!':
@@ -60,9 +61,10 @@ for line in fh.readlines():
 	rows=rows+1
     except:
 	pass
+#close outpout files
 genefile.close()
 probefile.close()
 expressionfile.close()
-
+#print the number of rows that have been processed
 print '%s rows processed'%rows
     
