@@ -1,12 +1,15 @@
 # -*- coding: iso-8859-1 -*-
-#import database query script
 
+<<<<<<< HEAD
 import cgi
 import cgitb
 
 import os
 
 from mod_python import apache
+=======
+#import database query script
+>>>>>>> a2905967263760d53b9538f4115bb321f2789c69
 
 directory = os.path.dirname(_file_)
 
@@ -22,6 +25,7 @@ cgitb.enable()
 
 
 form = cgi.FieldStorage()
+#write out the data that is to be output back to the webpage.
 
 print "content-type: text/html" #html stuff is following
 print

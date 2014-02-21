@@ -1,0 +1,7 @@
+
+readdata.py: This script converts the data from GEO into a format that can be used by mysql.
+
+models.py: This script contains classes that log into mysql and query the data base and store the results in arrays.
+
+execute.py: This script contains the code that is meant to query the database using models.py with input from the 
+            webserver and use cgi scripts to output it back to the web. it is not fully working however.
