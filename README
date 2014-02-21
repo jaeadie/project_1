@@ -1,6 +1,5 @@
 
-
-readdata.py: This script converts the data from GEO into a format that cna be used by mysql.
+readdata.py: This script converts the data from GEO into a format that can be used by mysql.
 
 models.py: This script contains classes that log into mysql and query the data base and store the results in arrays.
 
