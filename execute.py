@@ -1,6 +1,7 @@
 # -*- coding: iso-8859-1 -*-
 
 <<<<<<< HEAD
+#import cgi programs
 import cgi
 import cgitb
 
@@ -18,7 +19,6 @@ model = apache.import_module('models.py', path = [directory])
 Gene = models.Gene([query])
 
 
-#import cgi programs
 
 
 cgitb.enable()
