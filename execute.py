@@ -1,16 +1,22 @@
 # -*- coding: iso-8859-1 -*-
 #import database query script
 
+import cgi
+import cgitb
 
-import models
+import os
 
-Gene = models.Gene(%s)
+from mod_python import apache
+
+directory = os.path.dirname(_file_)
+
+model = apache.import_module('models.py', path = [directory])
+
+Gene = models.Gene([query])
 
 
 #import cgi programs
 
-import cgi
-import cgitb
 
 cgitb.enable()
 
