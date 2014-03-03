@@ -1,4 +1,4 @@
-# this script was used to find the 3 longest gene sequences in the NC_002695.1.fasta file
+# this script finds the longest 3 gene sequences in a fasta file and outputs them in fasta format.
 
 # import the biopython and SeqIO  programmes to the terminal.
 from Bio import SeqIO
